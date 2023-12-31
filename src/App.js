@@ -11,10 +11,9 @@ function App() {
       date.setDate(date.getDate() + i);
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
-      const monthValue = month.toString().length === 1 ? `0${month}` : month;
+      const monthValue = date.getMonth();
       const day = date.getDate();
-      const dayValue = day.toString().length === 1 ? `0${day}` : day;
-      const value = `${year}${monthValue}${dayValue}`;
+      const value = `${day}/${monthValue}/${year}`;
       const label = `${day}/${month}/${year}`;
       dates.push({ label, value });
     }
@@ -29,7 +28,7 @@ function App() {
     secondPlayer: "",
     court: "01",
     date: dates[0].value,
-    time: "0800",
+    time: "08:00",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -48,15 +47,24 @@ function App() {
         const hour = i.toString().padStart(2, "0");
         const minute = (j * 15).toString().padStart(2, "0");
         const label = `${hour}:${minute}`;
-        const value = `${hour}${minute}`;
-        hours.push({ label, value });
+        hours.push({ label, value: label });
       }
     }
     return hours;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log("formData ------->", formData);
+    const [day, month, year] = formData.date.split("/");
+    const monthDate = parseInt(month) + 1;
+    const monthDateValue =
+      monthDate.toString().length === 1 ? `0${monthDate}` : monthDate;
+    const dayValue = day.toString().length === 1 ? `0${day}` : day;
+    const [hours, minutes] = formData.time.split(":");
+    const bookingDate = new Date(year, month, day, hours, minutes);
+    console.log("bookingDate", bookingDate);
+    const { date, time, ...submitData } = formData;
     setIsLoading(true);
     try {
       await fetch(
@@ -68,7 +76,10 @@ function App() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            ...formData,
+            ...submitData,
+            bookingDate,
+            time: hours + minutes,
+            date: year + monthDateValue + dayValue,
           }),
         }
       );
