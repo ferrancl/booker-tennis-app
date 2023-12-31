@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/booker-app/static/css/main.ab6fd77c.css",
+    "main.js": "/booker-app/static/js/main.8d8fe122.js",
+    "static/js/787.f2a65fcd.chunk.js": "/booker-app/static/js/787.f2a65fcd.chunk.js",
+    "static/media/ctlasalut40.png": "/booker-app/static/media/ctlasalut40.d524af482c055ecc3cba.png",
+    "index.html": "/booker-app/index.html",
+    "main.ab6fd77c.css.map": "/booker-app/static/css/main.ab6fd77c.css.map",
+    "main.8d8fe122.js.map": "/booker-app/static/js/main.8d8fe122.js.map",
+    "787.f2a65fcd.chunk.js.map": "/booker-app/static/js/787.f2a65fcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab6fd77c.css",
+    "static/js/main.8d8fe122.js"
+  ]
+}
