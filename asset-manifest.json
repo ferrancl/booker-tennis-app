@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/booker-tennis-app/static/css/main.ab6fd77c.css",
-    "main.js": "/booker-tennis-app/static/js/main.2eee8388.js",
+    "main.js": "/booker-tennis-app/static/js/main.92b4d6f6.js",
     "static/js/787.f2a65fcd.chunk.js": "/booker-tennis-app/static/js/787.f2a65fcd.chunk.js",
-    "static/media/ctlasalut40.png": "/booker-tennis-app/static/media/ctlasalut40.d524af482c055ecc3cba.png",
     "index.html": "/booker-tennis-app/index.html",
     "main.ab6fd77c.css.map": "/booker-tennis-app/static/css/main.ab6fd77c.css.map",
-    "main.2eee8388.js.map": "/booker-tennis-app/static/js/main.2eee8388.js.map",
+    "main.92b4d6f6.js.map": "/booker-tennis-app/static/js/main.92b4d6f6.js.map",
     "787.f2a65fcd.chunk.js.map": "/booker-tennis-app/static/js/787.f2a65fcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab6fd77c.css",
-    "static/js/main.2eee8388.js"
+    "static/js/main.92b4d6f6.js"
   ]
 }
