@@ -63,7 +63,7 @@ function App() {
     const { date, time, ...submitData } = formData;
     setIsLoading(true);
     try {
-      await fetch(
+      const response = await fetch(
         process.env.REACT_APP_FETCH_URL || "http://localhost:8080/book",
         {
           method: "POST",
@@ -78,6 +78,8 @@ function App() {
           }),
         }
       );
+      const { text } = await response.json();
+      alert(text);
     } catch (error) {
       console.log("error", error);
     }
