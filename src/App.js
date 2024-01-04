@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./ctlasalut40.png";
 import COURTS from "./constants/courts";
 import "./App.css";
 
@@ -35,8 +34,6 @@ function App() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log("name", name);
-    console.log("value", value);
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
@@ -53,12 +50,8 @@ function App() {
     return hours;
   };
 
-  console.log("process.env.FETCH_URL", process.env.REACT_APP_FETCH_URL);
-  console.log("process.env", process.env);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("formData ------->", formData);
     const [day, month, year] = formData.date.split("/");
     const monthDate = parseInt(month) + 1;
     const monthDateValue =
@@ -96,7 +89,6 @@ function App() {
   return (
     <div className="App">
       <div className="title">
-        <img className="logo" src={logo} alt="logo" />
         <h1>Reserva tenis</h1>
       </div>
       <div className="content">
@@ -128,18 +120,18 @@ function App() {
             <input
               name="secondPlayer"
               id="secondPlayer"
-              maxlength="5"
+              maxLength="5"
               value={formData.secondPlayer}
               onChange={handleChange}
             />
           </div>
           <div className="input-wrapper">
-            <label className="span-input" for="court">
+            <label className="span-input" htmlFor="court">
               Pista:
             </label>
             <select name="court" id="courts" onChange={handleChange}>
               {COURTS.map(({ name, value }) => (
-                <option name={"court"} id="court" value={value}>
+                <option name={"court"} id="court" value={value} key={value}>
                   {name}
                 </option>
               ))}
@@ -148,24 +140,24 @@ function App() {
         </div>
         <div className="row">
           <div className="input-wrapper">
-            <label className="span-input" for="court">
+            <label className="span-input" htmlFor="court">
               Fecha:
             </label>
             <select name="date" id="dates" onChange={handleChange}>
               {dates.map(({ label, value }) => (
-                <option name="date" id="date" value={value}>
+                <option name="date" id="date" value={value} key={value}>
                   {label}
                 </option>
               ))}
             </select>
           </div>
           <div className="input-wrapper">
-            <label className="span-input" for="court">
+            <label className="span-input" htmlFor="court">
               Hora:
             </label>
             <select name="time" id="hours" onChange={handleChange}>
               {createHours().map(({ label, value }) => (
-                <option name="time" id="time" value={value}>
+                <option name="time" id="time" value={value} key={value}>
                   {label}
                 </option>
               ))}
