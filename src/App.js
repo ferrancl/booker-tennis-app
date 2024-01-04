@@ -53,6 +53,9 @@ function App() {
     return hours;
   };
 
+  console.log("process.env.FETCH_URL", process.env.REACT_APP_FETCH_URL);
+  console.log("process.env", process.env);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("formData ------->", formData);
@@ -68,9 +71,8 @@ function App() {
     setIsLoading(true);
     try {
       await fetch(
-        "https://booker-tennis-node-bfd2a5a31c95.herokuapp.com/book",
+        process.env.REACT_APP_FETCH_URL || "http://localhost:8080/book",
         {
-          // await fetch("http://localhost:8080/book", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
