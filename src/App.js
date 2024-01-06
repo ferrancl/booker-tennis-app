@@ -64,7 +64,7 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        process.env.REACT_APP_FETCH_URL || "http://localhost:8080/book",
+        "https://booker-tennis-node-bfd2a5a31c95.herokuapp.com/book",
         {
           method: "POST",
           headers: {
